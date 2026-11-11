@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>MARKETHUB | Buy & Sell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="#" class="brand"><span class="brand-icon">🛍️</span>IVAN-MARKET<span>HUB</span></a>
+      <nav class="main-nav">
+        <a href="#market">Marketplace</a>
+        <a href="#categories">Categories</a>
+        <a href="#seller-dashboard">My Listings</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="favoritesNav">♡ <span>Favorites</span></button>
+        <button class="btn btn-primary" id="openSellBtn">＋ Sell an item</button>
+      </div>
+      <button class="mobile-menu" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#market">Marketplace</a>
+      <a href="#categories">Categories</a>
+      <a href="#seller-dashboard">My Listings</a>
+      <button class="btn btn-primary" id="mobileSellBtn">＋ Sell an item</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> YOUR LOCAL BUY & SELL COMMUNITY</div>
+        <h1>Find it. Love it.<br><span>Make it yours.</span></h1>
+        <p>Discover great deals, list your items, and connect directly with sellers through Facebook.</p>
+        <div class="hero-actions">
+          <a href="#market" class="btn btn-primary btn-large">Explore marketplace <span>→</span></a>
+          <button class="btn btn-outline btn-large" id="heroSellBtn">Start selling</button>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="heroProductCount">0</strong><span>Items listed</span></div>
+          <div><strong>100%</strong><span>Free to browse</span></div>
+          <div><strong>Direct</strong><span>Seller contact</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+        <div class="hero-glow"></div>
+        <div class="floating-card card-top"><span>✦</span><div><b>Great finds</b><small>Discover something new</small></div></div>
+        <div class="hero-shopping">🛍️</div>
+        <div class="floating-card card-bottom"><span class="check-icon">✓</span><div><b>Connect directly</b><small>Chat with sellers on Facebook</small></div></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><span>✦</span> Easy listings</div>
+      <div><span>↗</span> Direct Facebook contact</div>
+      <div><span>♡</span> Save your favorites</div>
+      <div><span>⌂</span> Local community marketplace</div>
+    </section>
+
+    <section class="section categories-section" id="categories">
+      <div class="section-heading">
+        <div><div class="eyebrow">BROWSE BY INTEREST</div><h2>Explore categories</h2></div>
+        <button class="text-button" id="allCategoriesBtn">View all items →</button>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="section market-section" id="market">
+      <div class="section-heading market-heading">
+        <div><div class="eyebrow">THE MARKETPLACE</div><h2>Discover your next find</h2><p class="section-subtitle">Browse listings from your community.</p></div>
+        <button class="btn btn-primary" id="marketSellBtn">＋ Post a listing</button>
+      </div>
+
+      <div class="market-toolbar">
+        <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search products, brands, or sellers..."><kbd>/</kbd></div>
+        <select id="sortSelect" aria-label="Sort listings">
+          <option value="newest">Newest first</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-chips" id="filterChips"></div>
+        <button class="text-button" id="clearFiltersBtn">Clear filters</button>
+      </div>
+
+      <div class="results-line"><span id="resultsCount">0 items</span><span id="activeFilterLabel">All listings</span></div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">⌕</div><h3>No listings found</h3>
+        <p>Try another search or clear your filters.</p>
+        <button class="btn btn-outline" id="emptyClearBtn">Clear filters</button>
+      </div>
+    </section>
+
+    <section class="sell-banner">
+      <div><div class="eyebrow">TURN UNUSED INTO USEFUL</div><h2>Have something to sell?</h2><p>Give your items a new home. Create a listing and let buyers contact you directly.</p></div>
+      <button class="btn btn-light btn-large" id="bannerSellBtn">List an item <span>→</span></button>
+      <div class="banner-decoration">✦</div>
+    </section>
+
+    <section class="section dashboard-section" id="seller-dashboard">
+      <div class="section-heading">
+        <div><div class="eyebrow">YOUR SELLER SPACE</div><h2>My listings</h2><p class="section-subtitle">Manage the products you have posted on this device.</p></div>
+        <button class="btn btn-primary" id="dashboardSellBtn">＋ Add listing</button>
+      </div>
+      <div class="dashboard-stats">
+        <div class="stat-card"><span>Total listings</span><strong id="dashTotal">0</strong><small>All your posts</small></div>
+        <div class="stat-card"><span>Active listings</span><strong id="dashActive">0</strong><small>Visible in marketplace</small></div>
+        <div class="stat-card"><span>Favorites saved</span><strong id="dashFavorites">0</strong><small>On this browser</small></div>
+      </div>
+      <div class="dashboard-list" id="dashboardList"></div>
+    </section>
+
+    <section class="safety-section">
+      <div class="safety-icon">🛡️</div>
+      <div><h3>Buy and sell safely</h3><p>Check an item before paying, meet in a public place when possible, and never share passwords or verification codes. MARKETHUB does not process payments or verify sellers.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#" class="brand"><span class="brand-icon">M</span> MARKET<span>HUB</span></a>
+    <p>A community marketplace to discover and share great finds.</p>
+    <small>© <span id="currentYear"></span> MARKETHUB. Demo marketplace project.</small>
+  </footer>
+
+  <!-- Add/Edit listing modal -->
+  <div class="modal-backdrop" id="listingModal" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="listingModalTitle">
+      <div class="modal-header"><div><div class="eyebrow">SELL ON MARKETHUB</div><h2 id="listingModalTitle">Create a listing</h2></div><button class="icon-btn" data-close="listingModal" aria-label="Close">✕</button></div>
+      <form id="listingForm">
+        <input type="hidden" id="editingId">
+        <div class="form-grid">
+          <label class="form-field full">Product name<input id="productName" maxlength="70" required placeholder="e.g. Wireless headphones"></label>
+          <label class="form-field">Price (₱)<input id="productPrice" type="number" min="0" step="0.01" required placeholder="e.g. 1500"></label>
+          <label class="form-field">Category<select id="productCategory" required></select></label>
+          <label class="form-field">Your name<input id="sellerName" maxlength="60" required placeholder="Seller name"></label>
+          <label class="form-field">Location<input id="sellerLocation" maxlength="80" required placeholder="e.g. Koronadal City"></label>
+          <label class="form-field full">Facebook profile or page link<input id="sellerFacebook" type="url" required placeholder="https://www.facebook.com/yourprofile"><small>Buyers will use this link to contact you. Use a Facebook profile or page URL.</small></label>
+          <label class="form-field full">Product image<input id="productImageFile" type="file" accept="image/*"><small>Optional. Choose an image from your device. Images are saved in this browser.</small></label>
+          <label class="form-field full">Or paste an image URL<input id="productImageUrl" type="url" placeholder="https://example.com/product-photo.jpg"></label>
+          <label class="form-field full">Description<textarea id="productDescription" rows="4" maxlength="1000" required placeholder="Describe the item's condition, details, and other important information..."></textarea></label>
+        </div>
+        <div class="image-preview hidden" id="imagePreviewWrap"><img id="imagePreview" alt="Product preview"><button type="button" class="text-button" id="removeImageBtn">Remove image</button></div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <div class="modal-actions"><button type="button" class="btn btn-ghost" data-close="listingModal">Cancel</button><button type="submit" class="btn btn-primary" id="saveListingBtn">Publish listing</button></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Product details modal -->
+  <div class="modal-backdrop" id="detailsModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+      <div class="modal-header"><div class="eyebrow">PRODUCT DETAILS</div><button class="icon-btn" data-close="detailsModal" aria-label="Close">✕</button></div>
+      <div id="detailsContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
